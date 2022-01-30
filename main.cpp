@@ -6,10 +6,15 @@
 
 int main() {
     Collection collezione("Collezione");
-    std::shared_ptr<Note> nota1(new Note("Nota 1,","Testo 1"));
-    std::shared_ptr<Note> nota2(new Note("Nota 2,","Testo 2"));
-    collezione.addNote(nota1);
-    collezione.addNote(nota2);
+    Note* nota1=new Note("Nota 1", "Testo 1");
+    Note* nota2=new Note("Nota 2", "Testo 2");
+    Note* nota3=new Note("Nota 3", "Testo 3");
+    collezione.addNote(*nota1);
+    collezione.addNote(*nota2);
+    collezione.addNote(*nota3);
+    collezione.removeNote(2);
     collezione.printCollection();
+    collezione.removeNote(1);
+    collezione.modifyNote(3,"Ciao","CIAO");
     return 0;
 }

@@ -11,7 +11,11 @@ class Note {
 public:
     Note(std::string t, std::string tx);
 
+    Note(Note &orig);
+
     void deleteNote();
+
+    void printNote();
 
     void modifyNote(std::string t, std::string tx);
 

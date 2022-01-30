@@ -5,23 +5,25 @@
 #include "Collection.h"
 
 Collection::Collection(std::string n):name(n){
-    std::list<std::shared_ptr<Note>> nl;
+    std::list<Note*> nl;
     noteList=nl;
 }
 
 
 void Collection::printCollection() {
     int i=0;
-    std::cout<<"Nome collezione: "<<this->getName()<<std::endl;
+    std::cout<<"Nome collezione: "<<this->getName()<<"\n"<<std::endl;
     for(auto itr=noteList.begin();itr!=noteList.end();itr++){
         i++;
-        std::cout<<"Nota "<<i<<"\nTitolo: "<<(*itr)->getTitle()<<"\nTesto: "<<(*itr)->getText()<<std::endl;
+        std::cout<<"Nota "<<i<<std::endl;
+        (*itr)->printNote();
     }
 }
 
 
-void Collection::addNote(std::shared_ptr<Note> newNote) {
-    noteList.push_back(newNote);
+void Collection::addNote(Note& newNote) {
+    Note* n=new Note(newNote);
+    noteList.push_back(n);
 }
 
 
@@ -41,13 +43,12 @@ void Collection::modifyNote(int n, std::string title, std::string text) {
     int i=0;
     for(auto itr=noteList.begin();itr!=noteList.end();itr++){
         i++;
-        if(i==n){
+        if(i==n)
             (*itr)->modifyNote(title,text);
-        }
     }
 }
 
 std::string Collection::getName() {return name;}
 void Collection::setname(std::string n) {name=n;}
 
-std::list<std::shared_ptr<Note>> Collection::getNoteList() {return noteList;}
+std::list<Note*> Collection::getNoteList() {return noteList;}

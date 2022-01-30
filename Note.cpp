@@ -7,6 +7,12 @@
 Note::Note(std::string t, std::string tx) :title(t),text(tx){
 }
 
+Note::Note(Note &orig) {
+    title=orig.title;
+    text=orig.text;
+    blocked=orig.blocked;
+}
+
 void Note::deleteNote() {
     if(!this->isBlocked()){
         delete this;
@@ -15,15 +21,22 @@ void Note::deleteNote() {
         std::cout<<"La nota non può essere eliminata"<<std::endl;
 }
 
-void Note::modifyNote(std::string t, std::string tx){
-    if(!this->isBlocked()){
-        this->setText(t);
-        this->setTitle(tx);
-    }
-    else
-        std::cout<<"La nota non può essere modificata"<<std::endl;
+
+void Note::printNote() {
+    std::cout<<"Titolo :"<<this->getTitle()<<std::endl;
+    std::cout<<"Testo :"<<this->getText()<<"\n"<<std::endl;
 }
 
+void Note::modifyNote(std::string t, std::string tx){
+    if(this->blocked==false) {
+        this->setText(tx);
+        this->setTitle(t);
+        std::cout<<"La nuova nota è :"<<std::endl;
+        this->printNote();
+    }
+    else
+        std::cout<<"IMPOSSIBILE MODIFICARE LA NOTA"<<std::endl;
+}
 std::string Note::getTitle() {return title;}
 void Note::setTitle(std::string t) {title=t;}
 
