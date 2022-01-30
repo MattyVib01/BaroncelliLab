@@ -23,5 +23,6 @@ int main() {
     nota3->modifyNote("CIAO","CIAO");
     //Provo a eliminare la nota 3, che non verrà eliminata
     nota3->deleteNote();
+    nota1->deleteNote();
     return 0;
 }
