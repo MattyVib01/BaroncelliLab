@@ -7,6 +7,23 @@
 Note::Note(std::string t, std::string tx) :title(t),text(tx){
 }
 
+void Note::deleteNote() {
+    if(!this->isBlocked()){
+        delete this;
+    }
+    else
+        std::cout<<"La nota non può essere eliminata"<<std::endl;
+}
+
+void Note::modifyNote(std::string t, std::string tx){
+    if(!this->isBlocked()){
+        this->setText(t);
+        this->setTitle(tx);
+    }
+    else
+        std::cout<<"La nota non può essere modificata"<<std::endl;
+}
+
 std::string Note::getTitle() {return title;}
 void Note::setTitle(std::string t) {title=t;}
 

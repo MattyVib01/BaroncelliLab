@@ -16,16 +16,21 @@ public:
 
     void printCollection();     //stampa numero titolo e testo di ogni nota nella collezione
 
-    void addNote(std::unique_ptr<Note>);
+    void addNote(std::shared_ptr<Note>);        //aggiunge una nota alla collezione
 
-    void deleteNote(int n);
+    void removeNote(int n);                 //rimuove una nota dalla collezione
 
-    void modifyNote(int n, std::string title, std::string text);
+    void modifyNote(int n, std::string title, std::string text);    //permette di modificare una nota dalla collezione
+
+    std::string getName();
+    void setname(std::string n);
+
+    std::list<std::shared_ptr<Note>> getNoteList();
 
 
 private:
     std::string name;
-    std::list<std::unique_ptr<Note>> noteList;
+    std::list<std::shared_ptr<Note>> noteList;
 
 };
 

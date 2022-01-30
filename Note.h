@@ -11,6 +11,10 @@ class Note {
 public:
     Note(std::string t, std::string tx);
 
+    void deleteNote();
+
+    void modifyNote(std::string t, std::string tx);
+
     std::string getTitle();
     void setTitle(std::string t);
 
@@ -20,10 +24,11 @@ public:
     bool isBlocked();
     void setBlocked(bool b);
 
+
 private:
     std::string title;
     std::string text;
-    bool blocked;
+    bool blocked=false;
 };
 
 
