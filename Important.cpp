@@ -6,13 +6,15 @@
 
 Important* Important::instance= nullptr;
 
+Important::Important() {}
+
 Important * Important::getInstance() {
     if(instance== nullptr)
         instance=new Important;
     return instance;
 }
 
-void Collection::printCollection() {
+void Important::printCollection() {
     int i=0;
     std::cout<<"Nome collezione: "<<this->getName()<<"\n"<<std::endl;
     for(auto itr=noteList.begin();itr!=noteList.end();itr++){
@@ -23,12 +25,12 @@ void Collection::printCollection() {
 }
 
 
-void Collection::addNote(Note* newNote) {
+void Important::addNote(Note* newNote) {
     noteList.push_back(newNote);
 }
 
 
-void Collection::removeNote(int n) {
+void Important::removeNote(int n) {
     int i=0;
     for(auto itr=noteList.begin();itr!=noteList.end();itr++){
         i++;
@@ -41,7 +43,7 @@ void Collection::removeNote(int n) {
     }
 }
 
-void Collection::modifyNote(int n, std::string title, std::string text) {
+void Important::modifyNote(int n, std::string title, std::string text) {
     int i=0;
     for(auto itr=noteList.begin();itr!=noteList.end();itr++){
         i++;
@@ -50,8 +52,8 @@ void Collection::modifyNote(int n, std::string title, std::string text) {
     }
 }
 
-std::string Collection::getName() {return name;}
-void Collection::setname(std::string n) {name=n;}
+std::string Important::getName() {return name;}
+void Important::setname(std::string n) {name=n;}
 
-std::list<Note*> Collection::getNoteList() {return noteList;}
+std::list<Note*> Important::getNoteList() {return noteList;}
 

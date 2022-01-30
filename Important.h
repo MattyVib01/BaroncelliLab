@@ -9,7 +9,7 @@
 
 class Important{
 public:
-    static Important* getInstance();
+    static Important* getInstance();        //design patter singleton
 
     void printCollection();     //stampa numero titolo e testo di ogni nota nella collezione
 
@@ -19,14 +19,15 @@ public:
 
     void modifyNote(int n, std::string title, std::string text);    //permette di modificare una nota dalla collezione
 
+
+    //metodi getter e setter
     std::string getName();
     void setname(std::string n);
-
     std::list<Note*> getNoteList();
 
 private:
     Important();
-    std::string name="Important";
+    std::string name="Note Importanti";
     std::list<Note*> noteList;
     static Important* instance;
 
