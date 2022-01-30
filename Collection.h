@@ -6,7 +6,7 @@
 #define BARONCELLILAB_COLLECTION_H
 #include <iostream>
 #include "Note.h"
-#include <vector>
+#include <list>
 #include <memory>
 
 
@@ -14,12 +14,18 @@ class Collection {
 public:
     Collection(std::string n);
 
-    void addNote(std::unique_ptr<Note>); //scorre il vettore appena trova una casella vuota ci inserisce l'elemento (Warning)
+    void printCollection();     //stampa numero titolo e testo di ogni nota nella collezione
+
+    void addNote(std::unique_ptr<Note>);
 
     void deleteNote(int n);
+
+    void modifyNote(int n, std::string title, std::string text);
+
+
 private:
     std::string name;
-    std::vector<std::unique_ptr<Note>> noteList;
+    std::list<std::unique_ptr<Note>> noteList;
 
 };
 
