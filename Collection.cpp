@@ -31,10 +31,11 @@ void Collection::removeNote(int n) {
     int i=0;
     for(auto itr=noteList.begin();itr!=noteList.end();itr++){
         i++;
-        if(i==n) {
+        if(i==n){
             noteList.erase(itr);
             std::cout<<"Collezione aggiornata"<<std::endl;
             this->printCollection();
+            itr=noteList.end();
         }
     }
 }

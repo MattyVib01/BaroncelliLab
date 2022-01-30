@@ -13,8 +13,5 @@ int main() {
     collezione.addNote(*nota2);
     collezione.addNote(*nota3);
     collezione.removeNote(2);
-    collezione.printCollection();
-    collezione.removeNote(1);
-    collezione.modifyNote(3,"Ciao","CIAO");
     return 0;
 }
