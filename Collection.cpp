@@ -48,7 +48,7 @@ void Collection::modifyNote(int n, std::string title, std::string text) {
     }
 }
 
-std::string Collection::getName() {return name;}
+std::string Collection::getName() const {return name;}
 void Collection::setname(std::string n) {name=n;}
 
-std::list<Note*> Collection::getNoteList() {return noteList;}
+std::list<Note*> Collection::getNoteList() const {return noteList;}

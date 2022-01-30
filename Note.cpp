@@ -22,7 +22,7 @@ void Note::deleteNote() {
 }
 
 
-void Note::printNote() {
+void Note::printNote() const {
     std::cout<<"Titolo :"<<this->getTitle()<<std::endl;
     std::cout<<"Testo :"<<this->getText()<<"\n"<<std::endl;
 }
@@ -37,11 +37,11 @@ void Note::modifyNote(std::string t, std::string tx){
     else
         std::cout<<"Impossibile modificare la nota !"<<std::endl;
 }
-std::string Note::getTitle() {return title;}
+std::string Note::getTitle() const {return title;}
 void Note::setTitle(std::string t) {title=t;}
 
-std::string Note::getText() {return text;}
+std::string Note::getText() const {return text;}
 void Note::setText(std::string t) {text=t;}
 
-bool Note::isBlocked() {return blocked;}
+bool Note::isBlocked() const {return blocked;}
 void Note::setBlocked(bool b) {blocked=b;}

@@ -12,7 +12,7 @@
 
 class Collection {
 public:
-    Collection(std::string n);
+    explicit Collection(std::string n);
 
     void printCollection();     //stampa numero titolo e testo di ogni nota nella collezione
 
@@ -22,10 +22,10 @@ public:
 
     void modifyNote(int n, std::string title, std::string text);    //permette di modificare una nota dalla collezione
 
-    std::string getName();
+    std::string getName() const;
     void setname(std::string n);
 
-    std::list<Note*> getNoteList();
+    std::list<Note*> getNoteList()const;
 
 
 private:

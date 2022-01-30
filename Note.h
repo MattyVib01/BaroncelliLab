@@ -15,17 +15,17 @@ public:
 
     void deleteNote();
 
-    void printNote();
+    void printNote() const;
 
     void modifyNote(std::string t, std::string tx);
 
-    std::string getTitle();
+    std::string getTitle() const;
     void setTitle(std::string t);
 
-    std::string getText();
+    std::string getText() const;
     void setText(std::string t);
 
-    bool isBlocked();
+    bool isBlocked() const;
     void setBlocked(bool b);
 
 
