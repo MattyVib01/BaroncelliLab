@@ -18,7 +18,7 @@ void Note::deleteNote() {
         delete this;
     }
     else
-        std::cout<<"La nota non può essere eliminata"<<std::endl;
+        std::cout<<"Impossibile eliminare la nota !"<<std::endl;
 }
 
 
@@ -31,11 +31,11 @@ void Note::modifyNote(std::string t, std::string tx){
     if(this->blocked==false) {
         this->setText(tx);
         this->setTitle(t);
-        std::cout<<"La nuova nota è :"<<std::endl;
+        std::cout<<"La nuova nota e' :"<<std::endl;
         this->printNote();
     }
     else
-        std::cout<<"IMPOSSIBILE MODIFICARE LA NOTA"<<std::endl;
+        std::cout<<"Impossibile modificare la nota !"<<std::endl;
 }
 std::string Note::getTitle() {return title;}
 void Note::setTitle(std::string t) {title=t;}

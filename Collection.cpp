@@ -21,9 +21,8 @@ void Collection::printCollection() {
 }
 
 
-void Collection::addNote(Note& newNote) {
-    Note* n=new Note(newNote);
-    noteList.push_back(n);
+void Collection::addNote(Note* newNote) {
+    noteList.push_back(newNote);
 }
 
 

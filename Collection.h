@@ -16,7 +16,7 @@ public:
 
     void printCollection();     //stampa numero titolo e testo di ogni nota nella collezione
 
-    void addNote(Note& newNote);        //aggiunge una nota alla collezione
+    void addNote(Note* newNote);        //aggiunge una nota alla collezione
 
     void removeNote(int n);                 //rimuove una nota dalla collezione
 
