@@ -3,4 +3,4 @@ project(BaroncelliLab)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(BaroncelliLab main.cpp Note.h Note.cpp Collection.h Collection.cpp Important.h Important.cpp)
+add_executable(BaroncelliLab main.cpp Note.h Note.cpp Collection.h Collection.cpp Important.h Important.cpp Subject.cpp Subject.h Observer.cpp Observer.h)
