@@ -28,6 +28,7 @@ int main() {
     noteimportanti->addNote(nota3);
     noteimportanti->printCollection();
     collezione.printCollection();*/
+    std::cout<<"A"<<std::endl;
    nota2->deleteNote();
    collezione.printCollection();
     return 0;
