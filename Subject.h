@@ -10,10 +10,10 @@
 class Subject {
 public:
     virtual ~Subject();
-    virtual void notify();
+    virtual void notify()=0;
 
-    virtual void subscribe(Observer *o);
-    virtual void unsubscribe(Observer* o);
+    virtual void subscribe(Observer *o)=0;
+    virtual void unsubscribe(Observer* o)=0;
 
 
 };

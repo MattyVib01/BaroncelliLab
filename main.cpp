@@ -15,8 +15,8 @@ int main() {
     collezione.addNote(nota1);
     collezione.addNote(nota2);
     collezione.addNote(nota3);
-    //Rimuovo la nota 2 dalla collezione
-    collezione.removeNote(2);
+    /*//Rimuovo la nota 2 dalla collezione
+   collezione.removeNote(2);
     //Modifico la nota 1
     collezione.modifyNote(1,"Nuovo titolo","Nuovo testo");
     //Provo a modificare la nota 3, che non verrà modificata poichè è bloccata
@@ -27,6 +27,8 @@ int main() {
     noteimportanti=Important::getInstance();
     noteimportanti->addNote(nota3);
     noteimportanti->printCollection();
-    collezione.printCollection();
+    collezione.printCollection();*/
+   nota2->deleteNote();
+   collezione.printCollection();
     return 0;
 }

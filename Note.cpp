@@ -14,7 +14,8 @@ Note::Note(Note &orig) {
 }
 
 void Note::deleteNote() {
-    if(!this->isBlocked()){
+    if(this->isBlocked()== false){
+        notify();
         delete this;
     }
     else
@@ -48,7 +49,7 @@ void Note::setBlocked(bool b) {blocked=b;}
 
 void Note::notify() {
     for(auto itr=observersList.begin();itr!=observersList.end();itr++){
-        (*itr)->updateDelete();
+        (*itr)->updateDelete(*this);
     }
 }
 void Note::subscribe(Observer *o) {

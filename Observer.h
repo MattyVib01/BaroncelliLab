@@ -4,7 +4,8 @@
 
 #ifndef BARONCELLILAB_OBSERVER_H
 #define BARONCELLILAB_OBSERVER_H
-#include "Note.h"
+class Note;
+class Subject;
 
 
 class Observer {

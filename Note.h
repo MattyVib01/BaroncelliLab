@@ -7,7 +7,6 @@
 #include <iostream>
 #include<list>
 #include "Subject.h"
-#include "Observer.h"
 
 
 class Note: public Subject {

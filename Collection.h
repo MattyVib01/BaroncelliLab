@@ -8,6 +8,9 @@
 #include <list>
 #include <memory>
 #include "Observer.h"
+#include "Note.h"
+
+class Subject;
 
 
 class Collection: public Observer {
@@ -28,6 +31,7 @@ public:
     std::list<Note*> getNoteList()const;
 
     void updateDelete(Note &note) override;
+    ~Collection();
 
 
 private:
