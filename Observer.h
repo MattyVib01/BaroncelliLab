@@ -4,10 +4,14 @@
 
 #ifndef BARONCELLILAB_OBSERVER_H
 #define BARONCELLILAB_OBSERVER_H
+#include "Note.h"
 
 
 class Observer {
+public:
+    virtual ~Observer();
 
+    virtual void updateDelete(Note& note)=0;
 };
 
 

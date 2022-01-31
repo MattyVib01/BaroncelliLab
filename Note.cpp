@@ -45,3 +45,16 @@ void Note::setText(std::string t) {text=t;}
 
 bool Note::isBlocked() const {return blocked;}
 void Note::setBlocked(bool b) {blocked=b;}
+
+void Note::notify() {
+    for(auto itr=observersList.begin();itr!=observersList.end();itr++){
+        (*itr)->updateDelete();
+    }
+}
+void Note::subscribe(Observer *o) {
+    observersList.push_back(o);
+}
+
+void Note::unsubscribe(Observer *o) {
+    observersList.remove(o);
+}

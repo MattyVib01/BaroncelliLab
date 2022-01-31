@@ -5,9 +5,12 @@
 #ifndef BARONCELLILAB_NOTE_H
 #define BARONCELLILAB_NOTE_H
 #include <iostream>
+#include<list>
+#include "Subject.h"
+#include "Observer.h"
 
 
-class Note {
+class Note: public Subject {
 public:
     Note(std::string t, std::string tx);
 
@@ -28,11 +31,16 @@ public:
     bool isBlocked() const;
     void setBlocked(bool b);
 
+    void notify() override;
+    void subscribe(Observer* o) override;
+    void unsubscribe(Observer *o) override;
+
 
 private:
     std::string title;
     std::string text;
     bool blocked=false;
+    std::list<Observer*> observersList;
 };
 
 

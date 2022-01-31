@@ -52,3 +52,8 @@ std::string Collection::getName() const {return name;}
 void Collection::setname(std::string n) {name=n;}
 
 std::list<Note*> Collection::getNoteList() const {return noteList;}
+
+void Collection::updateDelete(Note& note) {
+    noteList.remove(&note);
+    numElements--;
+}

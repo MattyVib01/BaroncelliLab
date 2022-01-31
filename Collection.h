@@ -5,12 +5,12 @@
 #ifndef BARONCELLILAB_COLLECTION_H
 #define BARONCELLILAB_COLLECTION_H
 #include <iostream>
-#include "Note.h"
 #include <list>
 #include <memory>
+#include "Observer.h"
 
 
-class Collection {
+class Collection: public Observer {
 public:
     explicit Collection(std::string n);
 
@@ -27,10 +27,13 @@ public:
 
     std::list<Note*> getNoteList()const;
 
+    void updateDelete(Note &note) override;
+
 
 private:
     std::string name;
     std::list<Note*> noteList;
+    int numElements=0;
 
 };
 
