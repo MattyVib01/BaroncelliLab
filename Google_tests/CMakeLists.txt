@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 project(Google_tests)
 
-
 add_subdirectory(lib)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
