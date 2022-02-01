@@ -7,3 +7,4 @@ TEST(Note,getTitleTest){
     Note nota("Titolo","Testo");
     ASSERT_EQ("Titolo",nota.getTitle());
 }
+
