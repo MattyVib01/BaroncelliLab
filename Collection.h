@@ -27,6 +27,8 @@ public:
 
     std::string getName() const;
     void setname(std::string n);
+    int getNumElements() const;
+    void setNumElements(int n);
 
     std::list<Note*> getNoteList()const;
 

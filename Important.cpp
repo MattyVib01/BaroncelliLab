@@ -27,6 +27,8 @@ void Important::printCollection() {
 
 void Important::addNote(Note* newNote) {
     noteList.push_back(newNote);
+    newNote->subscribe(this);
+    numElements++;
 }
 
 
@@ -35,6 +37,8 @@ void Important::removeNote(int n) {
     for(auto itr=noteList.begin();itr!=noteList.end();itr++){
         i++;
         if(i==n){
+            (*itr)->unsubscribe(this);
+            numElements--;
             noteList.erase(itr);
             std::cout<<"Collezione aggiornata"<<std::endl;
             this->printCollection();
@@ -57,3 +61,17 @@ void Important::setname(std::string n) {name=n;}
 
 std::list<Note*> Important::getNoteList() {return noteList;}
 
+int Important::getNumElements() const {
+    return numElements;
+}
+
+void Important::setNumElements(int n) {
+    numElements=n;
+}
+
+void Important::updateDelete(Note &note) {
+    noteList.remove(&note);
+    numElements--;
+}
+
+Important::~Important() {}

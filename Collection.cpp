@@ -24,6 +24,7 @@ void Collection::printCollection() {
 void Collection::addNote(Note* newNote) {
     noteList.push_back(newNote);
     newNote->subscribe(this);
+    numElements++;
 }
 
 
@@ -33,6 +34,7 @@ void Collection::removeNote(int n) {
         i++;
         if(i==n){
             (*itr)->unsubscribe(this);
+            numElements--;
             noteList.erase(itr);
             std::cout<<"Collezione aggiornata"<<std::endl;
             this->printCollection();
@@ -52,6 +54,8 @@ void Collection::modifyNote(int n, std::string title, std::string text) {
 
 std::string Collection::getName() const {return name;}
 void Collection::setname(std::string n) {name=n;}
+int Collection::getNumElements() const{return numElements;}
+void Collection::setNumElements(int n) {numElements=n;}
 
 std::list<Note*> Collection::getNoteList() const {return noteList;}
 

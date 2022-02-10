@@ -6,30 +6,40 @@
 #include "Important.h"
 
 int main() {
-    //Creazione di 3 note e 1 collezione
-    Note* nota1=new Note("Nota 1", "Testo 1");
-    Note* nota2=new Note("Nota 2", "Testo 2");
-    Note* nota3=new Note("Nota 3", "Testo 3");
-    Collection collezione("Collezione");
-    //Aggiungo le note alla collezione
-    collezione.addNote(nota1);
-    collezione.addNote(nota2);
-    collezione.addNote(nota3);
-    /*//Rimuovo la nota 2 dalla collezione
-   collezione.removeNote(2);
-    //Modifico la nota 1
-    collezione.modifyNote(1,"Nuovo titolo","Nuovo testo");
-    //Provo a modificare la nota 3, che non verrà modificata poichè è bloccata
-    nota3->setBlocked(true);
-    nota3->modifyNote("CIAO","CIAO");
-    //Creazione della collezione "Note Importanti"
+    std::cout<<"Creazione di 3 note e 1 collezione"<<std::endl;
+    Note* appuntamenti1=new Note("Appuntamenti 16/02", "Dentista, Riunione");
+    Note* lista=new Note("Lista Spesa", "Mele, Banane");
+    Note* appuntamenti2=new Note("Appuntamenti 17/02", "Dottore");
+    appuntamenti1->printNote();
+    lista->printNote();
+    appuntamenti2->printNote();
+    Collection appuntamenti("Appuntamenti");
+    std::cout<<"\n\n";
+    std::cout<<"Aggiungo le note 'appuntamenti' alla propria collezione"<<std::endl;
+    appuntamenti.addNote(appuntamenti1);
+    appuntamenti.addNote(appuntamenti2);
+    appuntamenti.printCollection();
+    std::cout<<"\n\n";
+    std::cout<<"Rimuovo la nota appuntamenti2 dalla collezione"<<std::endl;
+   appuntamenti.removeNote(2);
+    std::cout<<"\n\n";
+    std::cout<<"Modifico la nota appuntamenti1 dalla collezione"<<std::endl;
+    appuntamenti.modifyNote(1,"Appuntamenti 16/02","Dentista, Riunione, Esame");
+    std::cout<<"\n\n";
+    std::cout<<"Provo a modificare la nota 'lista', che non verra' modificata poiche' e' bloccata"<<std::endl;
+    lista->setBlocked(true);
+    lista->modifyNote("Modifica", "Modifica");
+    std::cout<<"\n\n";
+    std::cout<<"Creazione della collezione 'Note Importanti'"<<std::endl;
     Important* noteimportanti;
     noteimportanti=Important::getInstance();
-    noteimportanti->addNote(nota3);
+    noteimportanti->addNote(appuntamenti1);
+    noteimportanti->addNote(lista);
     noteimportanti->printCollection();
-    collezione.printCollection();*/
-    std::cout<<"A"<<std::endl;
-   nota2->deleteNote();
-   collezione.printCollection();
+    std::cout<<"\n\n";
+    //Grazie al design pattern Observer se elimino una nota, questa viene eliminata anche nella collezione
+    std::cout<<"Elimino la nota 'appuntamenti1'"<<std::endl;
+    appuntamenti1->deleteNote();
+    noteimportanti->printCollection();
     return 0;
 }

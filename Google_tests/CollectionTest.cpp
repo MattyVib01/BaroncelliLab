@@ -28,12 +28,22 @@ TEST(Collection,setNameTest){
     ASSERT_EQ("NuovoNomeCollezione",collection.getName());
 }
 
-TEST(Collection,modifyNote){
+TEST(Collection,modifyNoteTest){
     Note* note=new Note("Titolo","Testo");
     Collection collection("NomeCollezione");
     collection.modifyNote(1,"NuovoTitolo","NuovoTesto");
     ASSERT_EQ("NuovoTitolo",note->getTitle());
     ASSERT_EQ("NuovoTesto",note->getText());
+}
+
+TEST(Collection,getNumElementsTest){
+    Collection collection("NomeCollezione");
+    ASSERT_EQ(0,collection.getNumElements());
+}
+TEST(Collection, setNumElementsTest){
+    Collection collection("NomeCollezione");
+    collection.setNumElements(3);
+    ASSERT_EQ(3,collection.getNumElements());
 }
 
 

@@ -4,10 +4,14 @@
 
 #ifndef BARONCELLILAB_IMPORTANT_H
 #define BARONCELLILAB_IMPORTANT_H
-#include "Collection.h"
+#include <iostream>
+#include "Observer.h"
+#include "Note.h"
+
+class Subject;
 
 
-class Important{
+class Important: public Observer{
 public:
     static Important* getInstance();        //design patter singleton
 
@@ -23,13 +27,21 @@ public:
     //metodi getter e setter
     std::string getName();
     void setname(std::string n);
+    int getNumElements() const;
+    void setNumElements(int n);
     std::list<Note*> getNoteList();
+
+
+    void updateDelete(Note &note) override;
+    ~Important();
+
 
 private:
     Important();
     std::string name="Note Importanti";
     std::list<Note*> noteList;
     static Important* instance;
+    int numElements=0;
 
 };
 
