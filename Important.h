@@ -13,27 +13,32 @@ class Subject;
 
 class Important: public Observer{
 public:
-    static Important* getInstance();        //design patter singleton
-
-    void printCollection();     //stampa numero titolo e testo di ogni nota nella collezione
-
-    void addNote(Note* newNote);        //aggiunge una nota alla collezione
-
-    void removeNote(int n);                 //rimuove una nota dalla collezione
-
-    void modifyNote(int n, std::string title, std::string text);    //permette di modificare una nota dalla collezione
+    //design patter singleton
+    static Important* getInstance();
+    //distruttore
+    ~Important();
+    //stampa nome della collezione, numero titolo e testo di ogni nota nella collezione
+    void printCollection();
+    //aggiunge una nota alla collezione
+    void addNote(Note* newNote);
+    //rimuove una nota dalla collezione
+    void removeNote(int n);
+    //permette di modificare una nota dalla collezione
+    void modifyNote(int n, std::string title, std::string text);
 
 
     //metodi getter e setter
     std::string getName();
     void setname(std::string n);
+
     int getNumElements() const;
     void setNumElements(int n);
+
     std::list<Note*> getNoteList();
 
-
+    //metodi design pattern observer
     void updateDelete(Note &note) override;
-    ~Important();
+
 
 
 private:

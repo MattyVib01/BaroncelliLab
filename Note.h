@@ -11,16 +11,18 @@
 
 class Note: public Subject {
 public:
+    //costruttore
     Note(std::string t, std::string tx);
-
+    //costruttore di copia
     Note(Note &orig);
-
+    //cancella una nota (se non è bloccata)
     void deleteNote();
-
+    //stampa titolo e testo di una nota
     void printNote() const;
-
+    //modifica titolo e testo di una nota (se non bloccata)
     void modifyNote(std::string t, std::string tx);
 
+    //metodi getter e setter
     std::string getTitle() const;
     void setTitle(std::string t);
 
@@ -30,6 +32,7 @@ public:
     bool isBlocked() const;
     void setBlocked(bool b);
 
+    //metodi design pattern observer
     void notify() override;
     void subscribe(Observer* o) override;
     void unsubscribe(Observer *o) override;

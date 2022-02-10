@@ -15,25 +15,31 @@ class Subject;
 
 class Collection: public Observer {
 public:
+    //costruttore
     explicit Collection(std::string n);
+    //distruttore
+    ~Collection();
+    //stampa numero titolo e testo di ogni nota nella collezione
+    void printCollection();
+    //aggiunge una nota alla collezione
+    void addNote(Note* newNote);
+    //rimuove una nota dalla collezione
+    void removeNote(int n);
+    //modifica una nota della collezione indicandone il numero (se non è bloccata)
+    void modifyNote(int n, std::string title, std::string text);
 
-    void printCollection();     //stampa numero titolo e testo di ogni nota nella collezione
-
-    void addNote(Note* newNote);        //aggiunge una nota alla collezione
-
-    void removeNote(int n);                 //rimuove una nota dalla collezione
-
-    void modifyNote(int n, std::string title, std::string text);    //permette di modificare una nota dalla collezione
-
+    //metodi getter e setter
     std::string getName() const;
     void setname(std::string n);
+
     int getNumElements() const;
     void setNumElements(int n);
 
     std::list<Note*> getNoteList()const;
 
+    //metodi design pattern observer
     void updateDelete(Note &note) override;
-    ~Collection();
+
 
 
 private:

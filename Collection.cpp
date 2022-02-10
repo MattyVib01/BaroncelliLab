@@ -9,6 +9,7 @@ Collection::Collection(std::string n):name(n){
     noteList=nl;
 }
 
+Collection::~Collection(){}
 
 void Collection::printCollection() {
     int i=0;
@@ -64,4 +65,3 @@ void Collection::updateDelete(Note& note) {
     numElements--;
 }
 
-Collection::~Collection(){}

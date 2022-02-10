@@ -14,6 +14,8 @@ Important * Important::getInstance() {
     return instance;
 }
 
+Important::~Important() {}
+
 void Important::printCollection() {
     int i=0;
     std::cout<<"Nome collezione: "<<this->getName()<<"\n"<<std::endl;
@@ -74,4 +76,3 @@ void Important::updateDelete(Note &note) {
     numElements--;
 }
 
-Important::~Important() {}
