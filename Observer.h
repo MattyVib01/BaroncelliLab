@@ -10,7 +10,7 @@ class Subject;
 
 class Observer {
 public:
-    virtual ~Observer();
+    virtual ~Observer()=default;
 
     virtual void updateDelete(Note& note)=0;
 };

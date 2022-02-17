@@ -13,43 +13,41 @@ Note::Note(Note &orig) {
     blocked=orig.blocked;
 }
 
-void Note::deleteNote() {
-    if(this->isBlocked()== false){
+bool Note::deleteNote() {
+    if(!this->isBlocked()){
         notify();
         delete this;
-    }
+        return true;
+            }
     else
-        std::cout<<"Impossibile eliminare la nota !"<<std::endl;
+        return false;
 }
 
 
-void Note::printNote() const {
-    std::cout<<"Titolo :"<<this->getTitle()<<std::endl;
-    std::cout<<"Testo :"<<this->getText()<<"\n"<<std::endl;
-}
-
-void Note::modifyNote(std::string t, std::string tx){
-    if(this->blocked==false) {
-        this->setText(tx);
+bool Note::modifyNote(std::string& t, std::string& tx){
+    if(!this->blocked) {
         this->setTitle(t);
-        std::cout<<"La nuova nota e' :"<<std::endl;
-        this->printNote();
+        this->setText(tx);
+
+        return true;
     }
     else
-        std::cout<<"Impossibile modificare la nota !"<<std::endl;
+        return false;
 }
 std::string Note::getTitle() const {return title;}
-void Note::setTitle(std::string t) {title=t;}
+void Note::setTitle(std::string& t) {title=t;}
 
 std::string Note::getText() const {return text;}
-void Note::setText(std::string t) {text=t;}
+void Note::setText(std::string& t) {text=t;}
 
 bool Note::isBlocked() const {return blocked;}
 void Note::setBlocked(bool b) {blocked=b;}
 
+bool Note::getIsImportant() const {return isImportant;}
+void Note::setIsImportant(bool i) {isImportant=i;}
 void Note::notify() {
-    for(auto itr=observersList.begin();itr!=observersList.end();itr++){
-        (*itr)->updateDelete(*this);
+    for(auto & itr : observersList){
+        itr->updateDelete(*this);
     }
 }
 void Note::subscribe(Observer *o) {

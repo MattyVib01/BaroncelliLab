@@ -9,6 +9,7 @@
 #include "Note.h"
 
 class Subject;
+class Collection;
 
 
 class Important: public Observer{
@@ -17,19 +18,17 @@ public:
     static Important* getInstance();
     //distruttore
     ~Important();
-    //stampa nome della collezione, numero titolo e testo di ogni nota nella collezione
-    void printCollection();
     //aggiunge una nota alla collezione
     void addNote(Note* newNote);
     //rimuove una nota dalla collezione
     void removeNote(int n);
     //permette di modificare una nota dalla collezione
-    void modifyNote(int n, std::string title, std::string text);
+    void modifyNote(int n, std::string& title, std::string& text);
 
 
     //metodi getter e setter
     std::string getName();
-    void setname(std::string n);
+    void setName(std::string& n);
 
     int getNumElements() const;
     void setNumElements(int n);

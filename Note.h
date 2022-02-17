@@ -16,21 +16,22 @@ public:
     //costruttore di copia
     Note(Note &orig);
     //cancella una nota (se non è bloccata)
-    void deleteNote();
-    //stampa titolo e testo di una nota
-    void printNote() const;
+    bool deleteNote();
     //modifica titolo e testo di una nota (se non bloccata)
-    void modifyNote(std::string t, std::string tx);
+    bool modifyNote(std::string& t, std::string& tx);
 
     //metodi getter e setter
     std::string getTitle() const;
-    void setTitle(std::string t);
+    void setTitle(std::string& t);
 
     std::string getText() const;
-    void setText(std::string t);
+    void setText(std::string& t);
 
     bool isBlocked() const;
     void setBlocked(bool b);
+
+    bool getIsImportant() const;
+    void setIsImportant(bool i);
 
     //metodi design pattern observer
     void notify() override;
@@ -42,6 +43,7 @@ private:
     std::string title;
     std::string text;
     bool blocked=false;
+    bool isImportant=false;
     std::list<Observer*> observersList;
 };
 

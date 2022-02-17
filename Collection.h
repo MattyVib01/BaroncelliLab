@@ -18,22 +18,21 @@ public:
     //costruttore
     explicit Collection(std::string n);
     //distruttore
-    ~Collection();
-    //stampa numero titolo e testo di ogni nota nella collezione
-    void printCollection();
+    ~Collection() override;
     //aggiunge una nota alla collezione
     void addNote(Note* newNote);
     //rimuove una nota dalla collezione
     void removeNote(int n);
     //modifica una nota della collezione indicandone il numero (se non è bloccata)
-    void modifyNote(int n, std::string title, std::string text);
+    void modifyNote(int n, std::string& title, std::string& text);
+
+    bool searchNote(Note& note);
 
     //metodi getter e setter
     std::string getName() const;
-    void setname(std::string n);
+    void setName(std::string& n);
 
     int getNumElements() const;
-    void setNumElements(int n);
 
     std::list<Note*> getNoteList()const;
 
@@ -46,7 +45,6 @@ private:
     std::string name;
     std::list<Note*> noteList;
     int numElements=0;
-
 };
 
 

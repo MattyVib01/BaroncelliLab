@@ -9,18 +9,7 @@ Collection::Collection(std::string n):name(n){
     noteList=nl;
 }
 
-Collection::~Collection(){}
-
-void Collection::printCollection() {
-    int i=0;
-    std::cout<<"Nome collezione: "<<this->getName()<<"\n"<<std::endl;
-    for(auto itr=noteList.begin();itr!=noteList.end();itr++){
-        i++;
-        std::cout<<"Nota "<<i<<std::endl;
-        (*itr)->printNote();
-    }
-}
-
+Collection::~Collection()= default;
 
 void Collection::addNote(Note* newNote) {
     noteList.push_back(newNote);
@@ -37,26 +26,30 @@ void Collection::removeNote(int n) {
             (*itr)->unsubscribe(this);
             numElements--;
             noteList.erase(itr);
-            std::cout<<"Collezione aggiornata"<<std::endl;
-            this->printCollection();
             itr=noteList.end();
         }
     }
 }
 
-void Collection::modifyNote(int n, std::string title, std::string text) {
+void Collection::modifyNote(int n, std::string& title, std::string& text) {
     int i=0;
-    for(auto itr=noteList.begin();itr!=noteList.end();itr++){
+    for(auto & itr : noteList){
         i++;
         if(i==n)
-            (*itr)->modifyNote(title,text);
+            itr->modifyNote(title,text);
     }
 }
 
+bool Collection::searchNote(Note &note) {
+    for(auto & itr : noteList){
+        if(note.getTitle()==(*itr).getTitle()&&note.getText()==(*itr).getText())
+            return true;
+    }
+    return false;
+}
 std::string Collection::getName() const {return name;}
-void Collection::setname(std::string n) {name=n;}
+void Collection::setName(std::string& n) { name=n;}
 int Collection::getNumElements() const{return numElements;}
-void Collection::setNumElements(int n) {numElements=n;}
 
 std::list<Note*> Collection::getNoteList() const {return noteList;}
 

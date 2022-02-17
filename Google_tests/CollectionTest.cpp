@@ -24,7 +24,7 @@ TEST(Collection,getNameTest){
 
 TEST(Collection,setNameTest){
     Collection collection("NomeCollezione");
-    collection.setname("NuovoNomeCollezione");
+    collection.setName("NuovoNomeCollezione");
     ASSERT_EQ("NuovoNomeCollezione",collection.getName());
 }
 
@@ -40,10 +40,6 @@ TEST(Collection,getNumElementsTest){
     Collection collection("NomeCollezione");
     ASSERT_EQ(0,collection.getNumElements());
 }
-TEST(Collection, setNumElementsTest){
-    Collection collection("NomeCollezione");
-    collection.setNumElements(3);
-    ASSERT_EQ(3,collection.getNumElements());
-}
+
 
 
