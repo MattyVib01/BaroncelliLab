@@ -58,10 +58,6 @@ int Important::getNumElements() const {
     return numElements;
 }
 
-void Important::setNumElements(int n) {
-    numElements=n;
-}
-
 void Important::updateDelete(Note &note) {
     noteList.remove(&note);
     numElements--;

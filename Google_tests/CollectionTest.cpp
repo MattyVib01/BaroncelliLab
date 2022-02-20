@@ -10,11 +10,11 @@ TEST(Collection,addNoteTest){
     Collection collection("NomeCollezione");
     collection.addNote(note);
     bool isTrue=false;
-    for(auto itr=collection.getNoteList().begin();itr!=collection.getNoteList().end();itr++){
-        if((*itr)==note)
+    for(auto & itr : collection.getNoteList()){
+        if(itr==note)
             isTrue=true;
     }
-    ASSERT_EQ(true, isTrue);
+    ASSERT_TRUE(isTrue);
 }
 
 TEST(Collection,getNameTest){
@@ -24,16 +24,18 @@ TEST(Collection,getNameTest){
 
 TEST(Collection,setNameTest){
     Collection collection("NomeCollezione");
-    collection.setName("NuovoNomeCollezione");
-    ASSERT_EQ("NuovoNomeCollezione",collection.getName());
+    std::string modify="Modifica";
+    collection.setName(modify);
+    ASSERT_EQ("Modifica",collection.getName());
 }
 
 TEST(Collection,modifyNoteTest){
     Note* note=new Note("Titolo","Testo");
     Collection collection("NomeCollezione");
-    collection.modifyNote(1,"NuovoTitolo","NuovoTesto");
-    ASSERT_EQ("NuovoTitolo",note->getTitle());
-    ASSERT_EQ("NuovoTesto",note->getText());
+    std::string modify="Modifica";
+    collection.modifyNote(1,modify,modify);
+    ASSERT_EQ("Modifica",note->getTitle());
+    ASSERT_EQ("Modifica",note->getText());
 }
 
 TEST(Collection,getNumElementsTest){

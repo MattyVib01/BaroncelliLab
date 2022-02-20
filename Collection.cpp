@@ -9,6 +9,9 @@ Collection::Collection(std::string n):name(n){
     noteList=nl;
 }
 
+Collection::Collection() {
+    name="Senza nome";
+}
 Collection::~Collection()= default;
 
 void Collection::addNote(Note* newNote) {

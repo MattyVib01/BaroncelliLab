@@ -7,23 +7,23 @@
 #include <iostream>
 #include "Observer.h"
 #include "Note.h"
+#include "Collection.h"
 
 class Subject;
-class Collection;
 
 
-class Important: public Observer{
+class Important: public Collection{
 public:
     //design patter singleton
     static Important* getInstance();
     //distruttore
-    ~Important();
+    ~Important() override;
     //aggiunge una nota alla collezione
-    void addNote(Note* newNote);
+    void addNote(Note* newNote) override;
     //rimuove una nota dalla collezione
-    void removeNote(int n);
+    void removeNote(int n) override;
     //permette di modificare una nota dalla collezione
-    void modifyNote(int n, std::string& title, std::string& text);
+    void modifyNote(int n, std::string& title, std::string& text) override;
 
 
     //metodi getter e setter
@@ -31,7 +31,6 @@ public:
     void setName(std::string& n);
 
     int getNumElements() const;
-    void setNumElements(int n);
 
     std::list<Note*> getNoteList();
 

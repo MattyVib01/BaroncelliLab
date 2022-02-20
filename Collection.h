@@ -17,14 +17,15 @@ class Collection: public Observer {
 public:
     //costruttore
     explicit Collection(std::string n);
+    Collection();
     //distruttore
     ~Collection() override;
     //aggiunge una nota alla collezione
-    void addNote(Note* newNote);
+    virtual void addNote(Note* newNote);
     //rimuove una nota dalla collezione
-    void removeNote(int n);
+    virtual void removeNote(int n);
     //modifica una nota della collezione indicandone il numero (se non è bloccata)
-    void modifyNote(int n, std::string& title, std::string& text);
+    virtual void modifyNote(int n, std::string& title, std::string& text);
 
     bool searchNote(Note& note);
 
