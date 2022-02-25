@@ -20,25 +20,28 @@ void Collection::addNote(Note* newNote) {
 }
 
 
-void Collection::removeNote(int n) {
+bool Collection::removeNote(int n) {
     int i=0;
     for(auto itr=noteList.begin();itr!=noteList.end();itr++){
         i++;
         if(i==n){
             (*itr)->unsubscribe(this);
             noteList.erase(itr);
-            itr=noteList.end();
+            return true;
         }
     }
+    return false;
 }
 
-void Collection::modifyNote(int n, std::string& title, std::string& text) {
+bool Collection::modifyNote(int n, std::string& title, std::string& text) {
     int i=0;
+    bool b= false;
     for(auto & itr : noteList){
         i++;
         if(i==n)
-            itr->modifyNote(title,text);
+            b=itr->modifyNote(title,text);
     }
+    return b;
 }
 
 bool Collection::searchNote(Note &note) {

@@ -21,15 +21,8 @@ public:
     //aggiunge una nota alla collezione
     void addNote(Note* newNote) override;
     //rimuove una nota dalla collezione
-    void removeNote(int n) override;
-    //permette di modificare una nota dalla collezione
-    void modifyNote(int n, std::string& title, std::string& text) override;
+    bool removeNote(int n) override;
 
-
-    //metodi getter e setter
-    std::string getName();
-    void setName(std::string& n);
-    std::list<Note*> getNoteList();
 
     //metodi design pattern observer
     void updateDelete(Note &note) override;

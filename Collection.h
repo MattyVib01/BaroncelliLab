@@ -23,9 +23,9 @@ public:
     //aggiunge una nota alla collezione
     virtual void addNote(Note* newNote);
     //rimuove una nota dalla collezione
-    virtual void removeNote(int n);
+    virtual bool removeNote(int n);
     //modifica una nota della collezione indicandone il numero (se non è bloccata)
-    virtual void modifyNote(int n, std::string& title, std::string& text);
+    virtual bool modifyNote(int n, std::string& title, std::string& text);
     //restituisce true se la nota è presente nella collezione, false altrimenti
     bool searchNote(Note& note);
 

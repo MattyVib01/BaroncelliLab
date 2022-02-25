@@ -25,7 +25,7 @@ void Important::addNote(Note* newNote) {
 }
 
 
-void Important::removeNote(int n) {
+bool Important::removeNote(int n) {
     int i=0;
     for(auto itr=noteList.begin();itr!=noteList.end();itr++){
         i++;
@@ -33,24 +33,13 @@ void Important::removeNote(int n) {
             (*itr)->unsubscribe(this);
             (*itr)->setIsImportant(false);
             noteList.erase(itr);
-            itr=noteList.end();
+            return true;
         }
     }
+    return false;
 }
 
-void Important::modifyNote(int n, std::string& title, std::string& text) {
-    int i=0;
-    for(auto & itr : noteList){
-        i++;
-        if(i==n)
-            itr->modifyNote(title,text);
-    }
-}
 
-std::string Important::getName() {return name;}
-void Important::setName(std::string& n) { name=n;}
-
-std::list<Note*> Important::getNoteList() {return noteList;}
 
 
 void Important::updateDelete(Note &note) {
