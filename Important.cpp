@@ -22,7 +22,6 @@ void Important::addNote(Note* newNote) {
     noteList.push_back(newNote);
     newNote->setIsImportant(true);
     newNote->subscribe(this);
-    numElements++;
 }
 
 
@@ -33,7 +32,6 @@ void Important::removeNote(int n) {
         if(i==n){
             (*itr)->unsubscribe(this);
             (*itr)->setIsImportant(false);
-            numElements--;
             noteList.erase(itr);
             itr=noteList.end();
         }
@@ -54,12 +52,8 @@ void Important::setName(std::string& n) { name=n;}
 
 std::list<Note*> Important::getNoteList() {return noteList;}
 
-int Important::getNumElements() const {
-    return numElements;
-}
 
 void Important::updateDelete(Note &note) {
     noteList.remove(&note);
-    numElements--;
 }
 

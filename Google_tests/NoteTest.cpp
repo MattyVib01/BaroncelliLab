@@ -61,3 +61,14 @@ TEST(Note, setBlockedTest){
     nota.setBlocked(true);
     ASSERT_TRUE(nota.isBlocked());
 }
+
+TEST(Note, getIsImportantTest){
+    Note nota("Titolo","Testo");
+    ASSERT_FALSE(nota.getIsImportant());
+}
+
+TEST(Note, setIsImportantTest){
+    Note nota("Titolo", "Testo");
+    nota.setIsImportant(true);
+    ASSERT_TRUE(nota.getIsImportant());
+}

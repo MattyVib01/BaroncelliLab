@@ -26,16 +26,13 @@ public:
     virtual void removeNote(int n);
     //modifica una nota della collezione indicandone il numero (se non è bloccata)
     virtual void modifyNote(int n, std::string& title, std::string& text);
-
+    //restituisce true se la nota è presente nella collezione, false altrimenti
     bool searchNote(Note& note);
 
     //metodi getter e setter
     std::string getName() const;
     void setName(std::string& n);
-
-    int getNumElements() const;
-
-    std::list<Note*> getNoteList()const;
+    std::list<Note*> getNoteList() const;
 
     //metodi design pattern observer
     void updateDelete(Note &note) override;
@@ -45,7 +42,6 @@ public:
 private:
     std::string name;
     std::list<Note*> noteList;
-    int numElements=0;
 };
 
 

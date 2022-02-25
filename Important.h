@@ -29,9 +29,6 @@ public:
     //metodi getter e setter
     std::string getName();
     void setName(std::string& n);
-
-    int getNumElements() const;
-
     std::list<Note*> getNoteList();
 
     //metodi design pattern observer
@@ -44,7 +41,6 @@ private:
     std::string name="Note Importanti";
     std::list<Note*> noteList;
     static Important* instance;
-    int numElements=0;
 
 };
 

@@ -5,17 +5,6 @@
 #include "../Collection.h"
 
 
-TEST(Collection,addNoteTest){
-    Note* note=new Note("Titolo","Testo");
-    Collection collection("NomeCollezione");
-    collection.addNote(note);
-    bool isTrue=false;
-    for(auto & itr : collection.getNoteList()){
-        if(itr==note)
-            isTrue=true;
-    }
-    ASSERT_TRUE(isTrue);
-}
 
 TEST(Collection,getNameTest){
     Collection collection("NomeCollezione");
@@ -28,6 +17,17 @@ TEST(Collection,setNameTest){
     collection.setName(modify);
     ASSERT_EQ("Modifica",collection.getName());
 }
+TEST(Collection,addNoteTest){
+    Note* note=new Note("Titolo","Testo");
+    Collection collection("NomeCollezione");
+    collection.addNote(note);
+    bool isTrue=false;
+    for(auto & itr : collection.getNoteList()){
+        if(itr==note)
+            isTrue=true;
+    }
+    ASSERT_TRUE(isTrue);
+}
 
 TEST(Collection,modifyNoteTest){
     Note* note=new Note("Titolo","Testo");
@@ -38,10 +38,15 @@ TEST(Collection,modifyNoteTest){
     ASSERT_EQ("Modifica",note->getText());
 }
 
-TEST(Collection,getNumElementsTest){
+TEST(Collection, searchNoteTest){
+    Note* note=new Note("Titolo","Testo");
+    Note* note2=new Note("Titolo2","Testo");
     Collection collection("NomeCollezione");
-    ASSERT_EQ(0,collection.getNumElements());
+    collection.addNote(note);
+    ASSERT_TRUE(collection.searchNote(*note));
+    ASSERT_FALSE(collection.searchNote(*note2));
 }
+
 
 
 
