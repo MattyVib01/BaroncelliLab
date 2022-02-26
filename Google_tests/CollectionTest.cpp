@@ -17,6 +17,7 @@ TEST(Collection,setNameTest){
     collection.setName(modify);
     ASSERT_EQ("Modifica",collection.getName());
 }
+
 TEST(Collection,addNoteTest){
     int collectionSize;
     Note* note=new Note("Titolo","Testo");

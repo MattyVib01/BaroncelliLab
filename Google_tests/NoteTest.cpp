@@ -4,13 +4,18 @@
 #include "gtest/gtest.h"
 #include "../Note.h"
 
+TEST(Note, setBlockedTest){
+    Note nota("Titolo","Testo");
+    nota.setBlocked(true);
+    ASSERT_TRUE(nota.isBlocked());
+}
+
 TEST(Note,deleteNoteTest){
     Note* nota= new Note("Titolo","Testo");
     nota->setBlocked(true);
     ASSERT_FALSE(nota->deleteNote());
     nota->setBlocked(false);
     ASSERT_TRUE(nota->deleteNote());
-
 }
 
 TEST(Note,getTitleTest){
@@ -26,12 +31,15 @@ TEST(Note, getTextTest){
 
 TEST(Note,modifyNoteTest){
     Note nota("Titolo","Testo");
+    Note nota2("Titolo2","Testo2");
+    nota2.setBlocked(true);
     std::string modify="Modifica";
     bool isModified= false;
     isModified=nota.modifyNote(modify,modify);
     ASSERT_TRUE(isModified);
     ASSERT_EQ("Modifica",nota.getTitle());
     ASSERT_EQ("Modifica",nota.getText());
+    ASSERT_FALSE(nota2.modifyNote(modify,modify));
 }
 
 
@@ -56,11 +64,6 @@ TEST(Note, isBlockedTest){
     ASSERT_FALSE(nota.isBlocked());
 }
 
-TEST(Note, setBlockedTest){
-    Note nota("Titolo","Testo");
-    nota.setBlocked(true);
-    ASSERT_TRUE(nota.isBlocked());
-}
 
 TEST(Note, getIsImportantTest){
     Note nota("Titolo","Testo");
